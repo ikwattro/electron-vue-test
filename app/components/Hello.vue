@@ -27,12 +27,17 @@
     },
 
     methods: {
+      updateContent: function (content) {
+        this.content = content
+      },
       read: function () {
+        var self = this
         fs.readFile('/Users/ikwattro/dev/_file.txt', 'utf8', function (err, data) {
           if (err) {
             return console.log(err)
           }
           console.log(data)
+          self.content = data
         })
       }
     }
