@@ -36,7 +36,7 @@
           console.log(data)
           self.content = data
         })
-        var driver = neo4j.v1.driver('bolt://localhost')
+        var driver = global.neo4j.v1.driver('bolt://localhost')
         var session = driver.session()
         session.run('CREATE (n:Electron) RETURN n')
           .subscribe({
