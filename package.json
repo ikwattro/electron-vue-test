@@ -76,6 +76,10 @@
     "webpack-merge": "^0.8.3"
   },
   "dependencies": {
-    "neo4j-driver": "^1.0.1"
+    "neo4j": "2.0.0-RC2",
+    "neo4j-driver": "^1.0.1",
+    "request": "^2.65.0",
+    "socket.io-client": "^1.4.6",
+    "ws": "^1.1.0"
   }
 }

@@ -27,9 +27,6 @@
     },
 
     methods: {
-      updateContent: function (content) {
-        this.content = content
-      },
       read: function () {
         var self = this
         fs.readFile('/Users/ikwattro/dev/_file.txt', 'utf8', function (err, data) {
@@ -39,6 +36,20 @@
           console.log(data)
           self.content = data
         })
+        var driver = neo4j.v1.driver('bolt://localhost')
+        var session = driver.session()
+        session.run('CREATE (n:Electron) RETURN n')
+          .subscribe({
+            onNext: function (record) {
+              console.log(record._fields)
+            },
+            onCompleted: function () {
+              session.close()
+            },
+            onError: function (error) {
+              console.log(error)
+            }
+          })
       }
     }
   }

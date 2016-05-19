@@ -29,6 +29,9 @@ var webpackConfig = merge(webpackBaseConfig, {
       extract: false
     })
   },
+  module: {
+    noParse: /node_modules\\json-schema\\lib\\validate\.js/
+  },
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
@@ -64,5 +67,4 @@ if (config.dev.vueDevTools) {
   }))
 }
 
-module.exports = webpackConfig 
-
+module.exports = webpackConfig

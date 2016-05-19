@@ -52,5 +52,6 @@ module.exports = {
 
     // Whether or not open another Electron window with vue-devtools.
     vueDevTools: true
-  }
+  },
+  module: { noParse: /node_modules\\json-schema\\lib\\validate\.js/ }
 }
